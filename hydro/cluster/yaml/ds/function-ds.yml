@@ -43,6 +43,8 @@ spec:
         env:
         - name: ROUTE_ADDR
           value: ROUTE_ADDR_DUMMY
+        - name: MEMORY_ADDR
+          value: MEMORY_ADDR_DUMMY
         - name: MGMT_IP
           value: MGMT_IP_DUMMY
         - name: SCHED_IPS

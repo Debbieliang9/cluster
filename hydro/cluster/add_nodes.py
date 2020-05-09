@@ -47,6 +47,7 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
     mon_str = ' '.join(util.get_pod_ips(client, 'role=monitoring'))
     route_str = ' '.join(route_ips)
     sched_str = ' '.join(util.get_pod_ips(client, 'role=scheduler'))
+    mem_addr = ' '.join(util.get_pod_ips(client, 'role=memory'))
 
     route_addr = util.get_service_address(client, 'routing-service')
     function_addr = util.get_service_address(client, 'function-service')
@@ -68,6 +69,7 @@ def add_nodes(client, apps_client, cfile, kinds, counts, create=False,
                 util.replace_yaml_val(env, 'ROUTING_IPS', route_str)
                 util.replace_yaml_val(env, 'ROUTE_ADDR', route_addr)
                 util.replace_yaml_val(env, 'SCHED_IPS', sched_str)
+                util.replace_yaml_val(env, 'MEMORY_ADDR', mem_addr)
                 util.replace_yaml_val(env, 'FUNCTION_ADDR', function_addr)
                 util.replace_yaml_val(env, 'MON_IPS', mon_str)
                 util.replace_yaml_val(env, 'MGMT_IP', management_ip)
