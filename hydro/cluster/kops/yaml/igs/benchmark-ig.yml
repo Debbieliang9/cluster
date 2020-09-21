@@ -28,4 +28,4 @@ spec:
   nodeLabels:
     role: benchmark
   subnets:
-    - us-west-2a
+    - us-east-1a

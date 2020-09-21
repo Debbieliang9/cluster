@@ -28,5 +28,5 @@ spec:
   nodeLabels:
     role: general
   subnets:
-    - us-west-2a
+    - us-east-1a
 

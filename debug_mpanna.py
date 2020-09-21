@@ -5,14 +5,14 @@ from cloudburst.client.client import CloudburstConnection
 import sys
 
 # change this every time the cluster restarts
-routing_elb = 'a25e4964041aa4f3fa6fe9113918fef1-704792777.us-west-2.elb.amazonaws.com'
-driver_node_ip = '3.14.126.192'
-function_elb = 'ad46fffb615ae4f8a9d8c080214c8acb-1849264485.us-west-2.elb.amazonaws.com'
+routing_elb = 'ab083821b67c642ad8a95dd1f9ea0051-1263573226.us-east-1.elb.amazonaws.com'
+driver_node_ip = '35.170.198.156'
+function_elb = 'ab0f547e122c84b27a61f07432e749eb-1098209528.us-east-1.elb.amazonaws.com'
 
 dc = CloudburstConnection(function_elb, driver_node_ip) # function_elb, driver_node_ip
 
 time_limit = 20
-total_runs  = 40
+total_runs  = 4
 number_of_k = sys.argv[1]
 print(number_of_k)
 
@@ -85,7 +85,7 @@ while run < total_runs:
     from random import random
     solution_key = ('solution_key_' + str(time.time()) + str(random())) # deferentiate keys  #+ str(run) +
     future_list = []   
-    for i in range(100): # parallely run. 10 is the number of function requests. TODO: spin up more nodes
+    for i in range(1): # parallely run. 10 is the number of function requests. TODO: spin up more nodes
         #start = time.time()
         future_list.append(cloud_func(routing_elb, solution_key, i)) # routing_elb
         #print(time.time() - start)
